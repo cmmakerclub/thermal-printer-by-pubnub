@@ -4,7 +4,7 @@ var pubnub = require("pubnub").init({
 });
 
 var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort("/dev/ttyUSB0", {
+var serialPort = new SerialPort("/dev/ttyACM0", {
   baudrate: 9600
 }, false); // this is the openImmediately flag [default is true]
 
@@ -57,6 +57,7 @@ pubnub.subscribe({
     callback : function(message) {
       if (isReadyToWrite && message.text && message.text != "") {
         var buffer = new Buffer(message.text, "utf-8")
+        console.log("GOT", buffer);
         serialPort.write(buffer, function(err, results) {
         });
       }
