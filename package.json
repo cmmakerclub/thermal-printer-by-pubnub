@@ -1,0 +1,27 @@
+{
+  "name": "thermal-printer-by-pubnub",
+  "version": "0.0.0",
+  "description": "thermal-printer-by-pubnub =========================",
+  "main": "thermal_printer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmmakerclub/thermal-printer-by-pubnub.git"
+  },
+  "keywords": [
+    "thermalprinter",
+    "nodejs"
+  ],
+  "author": "allfake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cmmakerclub/thermal-printer-by-pubnub/issues"
+  },
+  "homepage": "https://github.com/cmmakerclub/thermal-printer-by-pubnub",
+  "dependencies": {
+    "pubnub": "^3.6.7",
+    "serialport": "^1.4.6"
+  }
+}

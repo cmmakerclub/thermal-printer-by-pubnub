@@ -2,7 +2,7 @@ var pubnub = require("pubnub").init({
     publish_key   : "demo",
     subscribe_key : "demo"
 });
-
+var channel = "astatus";
 var SerialPort = require("serialport").SerialPort
 var serialPort = new SerialPort("/dev/ttyACM0", {
   baudrate: 9600
@@ -52,8 +52,14 @@ serialPort.open(function (error) {
   }
 });
 
+pubnub.state({
+  channel : channel,
+  state : { "name" : "thermal_printer" },
+});
+
 pubnub.subscribe({
-    channel  : "astatus",
+    channel  : channel,
+    heartbeat : 6,
     callback : function(message) {
       if (isReadyToWrite && message.text && message.text != "") {
         var buffer = new Buffer(message.text, "utf-8")
